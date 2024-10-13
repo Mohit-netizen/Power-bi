@@ -1,0 +1,5 @@
+Change date format 2
+
+make a copy of column
+Transform-splitColumn-By Delimeter-
+Select1-shift-select2-MergeColumn-Seperator-Custom-/-ColumnName-ok-----and------change it to date format after complition of operation
