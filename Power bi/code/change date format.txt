@@ -1,0 +1,37 @@
+Steps to Correctly Convert from m/d/y to d/m/y
+Open Power Query Editor:
+
+Click on "Transform Data" to access the Power Query Editor.
+Select Your Column:
+
+Click on the column with your dates (e.g., 1/1/1997).
+Ensure the Column is Text:
+
+If the dates are already recognized, convert them to text:
+Right-click the column header.
+Select "Change Type" > "Text."
+Add a Custom Column:
+
+Go to the "Add Column" tab and select "Custom Column."
+Use this formula to manually rearrange the parts:
+powerquery
+------------------------------------------------------------------------------------------------------------------------------
+Copy code
+let
+    parts = Text.Split([YourDateColumn], "/"),
+    month = parts{0},
+    day = parts{1},
+    year = parts{2}
+in
+    day & "/" & month & "/" & year
+---------------------------------------------------------------------------------------------------------------------------------
+Replace [YourDateColumn] with the actual name of your column.
+Rename the New Column:
+
+Name this new column (e.g., FormattedDate).
+Load Data:
+
+Click "Close & Apply" to load the changes back into Power BI.
+Explanation of the Formula
+Text.Split: This splits the date string using the slash (/) as a delimiter.
+Reorder the Parts: Constructs the new date format as d/m/y by rearranging the components.
